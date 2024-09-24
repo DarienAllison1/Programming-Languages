@@ -1,0 +1,15 @@
+To compile and run the program:
+
+Open a terminal or command prompt.
+Navigate to the folder containing the C++ file.
+In the Command Prompt, use the g++ command to compile your program: g++ -o most_common_char most_common_char.cpp
+Run the program by typing: most_common_char
+
+
+
+Test Cases: 
+Input: I like programming
+Output: 'I' 3
+
+Input: VSU Trojans
+Output: 'S' 2
