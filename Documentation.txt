@@ -1,0 +1,27 @@
+void findMostCommonCharacter(const string &input)
+What it does: This function takes the string entered by the user and finds which character appears the most. It then prints that character and how many times it shows up.
+
+Input:
+input: The string the user provides. It is passed by reference, meaning the program uses the original string without making a copy.
+
+Variables:
+vector<int> indexes: A list of 128 elements (one for each possible character in ASCII), all starting at 0. It keeps track of how often each character appears.
+maxCount: A number that stores the highest count of any character.
+mostCommonChar: A variable that holds the character that appears the most.
+
+How it works:
+Counting characters: It goes through each character in the string, converting each to uppercase. The program looks up the ASCII value of the character and increases its count in the indexes list.
+Finding the most common character: The program checks which character in the indexes list has the highest count.
+Print the result: It prints the character that occurs the most and how many times it appears.
+Returns: The function doesn't return anything. Instead, it prints the result directly.
+
+int main()
+What it does: This is the main part of the program. It asks the user for a string, calls the function findMostCommonCharacter to process it, and shows the result.
+
+Variables:
+string input: A variable to store the string entered by the user.
+
+How it works:
+Getting input: The user is asked to enter a string. getline(cin, input) is used to allow for multi-word input.
+Calling the function: The function findMostCommonCharacter(input) is called, which processes the input string and prints the result.
+Returns: The main function returns 0 to show the program ran successfully.
