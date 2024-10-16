@@ -1,16 +1,4 @@
 def roman_to_int(roman):
-    """
-    Converts a Roman numeral to an integer.
-
-    Args:
-        roman (str): The Roman numeral as a string.
-
-    Returns:
-        int: The integer representation of the Roman numeral.
-
-    Raises:
-        KeyError: If the input string contains invalid Roman numeral characters.
-    """
     roman_values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     total = 0
     prev_value = 0
@@ -26,19 +14,6 @@ def roman_to_int(roman):
     return total
 
 def int_to_roman(num):
-    """
-    Converts an integer to a Roman numeral.
-
-    Args:
-        num (int): The integer to convert, must be between 1 and 3999.
-
-    Returns:
-        str: The Roman numeral representation of the integer or an error message 
-             if the input exceeds the valid range.
-
-    Raises:
-        ValueError: If the input integer is less than 1.
-    """
     if num > 3999:
         return "You’re going to need a bigger calculator."
     
