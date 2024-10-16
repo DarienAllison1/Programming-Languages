@@ -24,8 +24,8 @@ def evaluate_expression(tokens):
                        Roman numeral expression.
 
     Returns:
-        str or int: The result of the evaluation in Roman numeral format
-                    or an error message if an error occurs.
+        str or int: The result of the evaluation in integer format or
+                    an error message if an error occurs.
 
     Raises:
         ZeroDivisionError: If there is an attempt to divide by zero.
@@ -110,8 +110,8 @@ def calculate(roman_expression):
         roman_expression (str): The Roman numeral expression to evaluate.
 
     Returns:
-        str: The result of the calculation in Roman numeral format or
-              an error message if an error occurs.
+        tuple: The result of the calculation in both integer and Roman numeral format,
+               or an error message if an error occurs.
 
     Raises:
         Exception: If the input cannot be parsed.
@@ -120,18 +120,20 @@ def calculate(roman_expression):
         tokens = tokenize(roman_expression)
         result = evaluate_expression(tokens)
 
-        # If the result is a string (error message), return it
+        # If the result is a string (error message), return it as both values
         if isinstance(result, str):
-            return result
+            return result, result
         
         # Convert result back to Roman numerals
-        return int_to_roman(result)
+        roman_result = int_to_roman(result)
+        
+        return result, roman_result
     
     except ZeroDivisionError as e:
-        return str(e)  # Handle division by zero for fractions
+        return str(e), str(e)  # Handle division by zero for fractions
     
     except Exception as e:
-        return "I don’t know how to read this."
+        return "I don’t know how to read this.", "I don’t know how to read this."
 
 
 # Main part of the script to get user input and show result
@@ -140,8 +142,8 @@ if __name__ == "__main__":
     input_equation = input("Enter a Roman numeral equation: ")
 
     # Calculate the result of the Roman numeral equation
-    result = calculate(input_equation)
+    int_result, roman_result = calculate(input_equation)
 
-    # Print just the result (no "The result of" prefix)
-    print(result)
-
+    # Print both the integer result and the Roman numeral result
+    print(f"Integer result: {int_result}")
+    print(f"Roman numeral result: {roman_result}")
