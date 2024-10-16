@@ -12,7 +12,7 @@ def test_large_number():
     assert roman_result == "You’re going to need a bigger calculator."
 
 def test_unparseable_input():
-    int_result, roman_result = calculate("ABC")
+    int_result, roman_result = calculate("ABA")
     assert int_result == "I don’t know how to read this."
     assert roman_result == "I don’t know how to read this."
 
