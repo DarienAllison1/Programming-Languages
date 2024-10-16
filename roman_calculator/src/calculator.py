@@ -58,7 +58,13 @@ def evaluate_expression(tokens):
             elif op == '/':
                 if next_val == 0:
                     raise ZeroDivisionError("There is no concept of a fractional number in Roman numerals.")
-                total //= next_val  # Integer division since Roman numerals don't have fractions
+                
+                # Check if division results in a fraction
+                if total % next_val != 0:
+                    return "There is no concept of a fractional number in Roman numerals."
+                
+                # Perform integer division
+                total //= next_val
             
             # Check for specific error conditions
             if total == 0:
