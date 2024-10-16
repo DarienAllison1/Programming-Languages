@@ -132,3 +132,16 @@ def calculate(roman_expression):
     
     except Exception as e:
         return "I don’t know how to read this."
+
+
+# Main part of the script to get user input and show result
+if __name__ == "__main__":
+    # Take the input equation from the user
+    input_equation = input("Enter a Roman numeral equation: ")
+
+    # Calculate the result of the Roman numeral equation
+    result = calculate(input_equation)
+
+    # Print just the result (no "The result of" prefix)
+    print(result)
+
