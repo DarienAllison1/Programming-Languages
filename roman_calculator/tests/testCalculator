@@ -2,19 +2,31 @@ import pytest
 from src.calculator import calculate
 
 def test_addition():
-    assert calculate("(VII + V) * II + I") == "XXV"
+    int_result, roman_result = calculate("(VII + V) * II + I")
+    assert int_result == 25
+    assert roman_result == "XXV"
 
 def test_large_number():
-    assert calculate("MMMM") == "You’re going to need a bigger calculator."
+    int_result, roman_result = calculate("MMMM")
+    assert int_result == "You’re going to need a bigger calculator."
+    assert roman_result == "You’re going to need a bigger calculator."
 
 def test_unparseable_input():
-    assert calculate("ABC") == "I don’t know how to read this."
+    int_result, roman_result = calculate("ABC")
+    assert int_result == "I don’t know how to read this."
+    assert roman_result == "I don’t know how to read this."
 
 def test_zero_case():
-    assert calculate("V - V") == "0 does not exist in Roman numerals."
+    int_result, roman_result = calculate("V - V")
+    assert int_result == "0 does not exist in Roman numerals."
+    assert roman_result == "0 does not exist in Roman numerals."
 
 def test_negative_case():
-    assert calculate("V - X") == "Negative numbers can’t be represented in Roman numerals."
+    int_result, roman_result = calculate("V - X")
+    assert int_result == "Negative numbers can’t be represented in Roman numerals."
+    assert roman_result == "Negative numbers can’t be represented in Roman numerals."
 
 def test_fraction_case():
-    assert calculate("V / II") == "There is no concept of a fractional number in Roman numerals."
+    int_result, roman_result = calculate("V / II")
+    assert int_result == "There is no concept of a fractional number in Roman numerals."
+    assert roman_result == "There is no concept of a fractional number in Roman numerals."
