@@ -107,15 +107,22 @@ def calculate(roman_expression):
         tokens = tokenize(roman_expression)
         result = evaluate_expression(tokens)
         
+        # Handle invalid cases such as 0, negative, and exceeding limits
+        if result == 0:
+            return "0 does not exist in Roman numerals.", "0 does not exist in Roman numerals."
+        if result < 0:
+            return "Negative numbers can’t be represented in Roman numerals.", "Negative numbers can’t be represented in Roman numerals."
+        if result > 3999:
+            return "You’re going to need a bigger calculator.", "You’re going to need a bigger calculator."
+        
         # Convert result back to Roman numerals
         roman_result = int_to_roman(result)
-        
         return result, roman_result
     
-    except ZeroDivisionError as e:
-        return str(e), str(e)
+    except ZeroDivisionError:
+        return "There is no concept of a fractional number in Roman numerals.", "There is no concept of a fractional number in Roman numerals."
     
-    except Exception as e:
+    except ValueError:
         return "I don’t know how to read this.", "I don’t know how to read this."
 
 def is_single_numeral(expression):
@@ -140,13 +147,14 @@ if __name__ == "__main__":
         # If it's a single Roman numeral, print its integer value
         try:
             int_value = roman_to_int(input_expression)
-            print(f"({int_value})")  # Output the integer in parentheses
+            print(f"{int_value}")  # Output the integer in parentheses
         except ValueError:
-            print("(Invalid Roman numeral)")
+            print("Invalid Roman numeral")
     else:
         # Calculate the result of the Roman numeral equation
         int_result, roman_result = calculate(input_expression)
         
         # Only print the Roman numeral result for equations
-        print(f"({roman_result})")
+        print(f"{roman_result}")
+
 
