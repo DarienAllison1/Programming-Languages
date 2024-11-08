@@ -70,10 +70,11 @@ public class Main {
         Staff staff2 = new Staff("David", "S002");
         emptyLibrary.addStaff(staff1);
         emptyLibrary.addStaff(staff2);
-        emptyLibrary.listStaff();    // Expect to see both Alice and David
+        emptyLibrary.listStaff();    // Expect to see both Tasha and David
 
         System.out.println("\nAll tests completed.");
     }
 }
+
 
  
