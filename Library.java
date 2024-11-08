@@ -19,30 +19,42 @@ class Library {
     }
 
     /**
-     * Adds a new book to the library's collection.
+     * Adds a new book to the library's collection if it is not already present.
      *
      * @param book The book to add.
      */
     public void addBook(Book book) {
-        books.add(book);
+        if (!books.contains(book)) { // Check for duplicate
+            books.add(book);
+        } else {
+            System.out.println("Book already exists: " + book.describe());
+        }
     }
 
     /**
-     * Registers a new member in the library.
+     * Registers a new member in the library if they are not already registered.
      *
      * @param member The member to register.
      */
     public void registerMember(Member member) {
-        members.add(member);
+        if (!members.contains(member)) { // Check for duplicate
+            members.add(member);
+        } else {
+            System.out.println("Member already exists: " + member.describe());
+        }
     }
 
     /**
-     * Adds a new staff member to the library.
+     * Adds a new staff member to the library if they are not already added.
      *
      * @param staffMember The staff member to add.
      */
     public void addStaff(Staff staffMember) {
-        staff.add(staffMember);
+        if (!staff.contains(staffMember)) { // Check for duplicate
+            staff.add(staffMember);
+        } else {
+            System.out.println("Staff member already exists: " + staffMember.describe());
+        }
     }
 
     /**
