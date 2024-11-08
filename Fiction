@@ -1,0 +1,26 @@
+/**
+ * Represents a fiction book in the library.
+ */
+class Fiction extends Book {
+
+    /**
+     * Constructs a new Fiction book with the specified title, author, and ISBN.
+     *
+     * @param title  The title of the fiction book.
+     * @param author The author of the fiction book.
+     * @param ISBN   The ISBN of the fiction book.
+     */
+    public Fiction(String title, String author, String ISBN) {
+        super(title, author, ISBN);
+    }
+
+    /**
+     * Describes the book as a fiction type.
+     *
+     * @return A string indicating the book is a fiction book.
+     */
+    @Override
+    public String describe() {
+        return "Fiction Book: " + title + " by " + author;
+    }
+}
