@@ -1,0 +1,7 @@
+Insert 10 10 5 5
+Insert -10 -10 5 5
+Find 10 10
+Insert -10 8 2 1
+Delete -10 -10
+Update -10 8 5 5
+Dump
